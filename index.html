@@ -1,0 +1,1240 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Receipt Roll &mdash; 20 Receipts, 2012&ndash;2019</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --plane:      #d6d8d3;
+    --plane-2:    #c9ccc6;
+    --paper:      #f7f7f4;
+    --paper-2:    #eceeea;
+    --ink:        #14161a;
+    --ink-2:      #565b61;
+    --ink-3:      #676d75;
+    --rule:       #e2e3df;
+    --rule-2:     #cfd1cc;
+    --accent:     #4a3aa7;
+    --accent-soft:#e4e1f4;
+    --flag:       #d03b3b;
+    --flag-soft:  #f7e3e3;
+    --shadow:     0 1px 2px rgba(20,22,26,.10), 0 12px 32px -8px rgba(20,22,26,.22);
+    --mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:      #0b0c0e;
+      --plane-2:    #000000;
+      --paper:      #1c1e22;
+      --paper-2:    #24272c;
+      --ink:        #f2f3f5;
+      --ink-2:      #a8aeb6;
+      --ink-3:      #8f959d;
+      --rule:       #2c3037;
+      --rule-2:     #3a3f47;
+      --accent:     #9085e9;
+      --accent-soft:#2b2a44;
+      --flag:       #e66767;
+      --flag-soft:  #3a2223;
+      --shadow:     0 1px 2px rgba(0,0,0,.5), 0 14px 34px -10px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #0b0c0e;
+    --plane-2:    #000000;
+    --paper:      #1c1e22;
+    --paper-2:    #24272c;
+    --ink:        #f2f3f5;
+    --ink-2:      #a8aeb6;
+    --ink-3:      #8f959d;
+    --rule:       #2c3037;
+    --rule-2:     #3a3f47;
+    --accent:     #9085e9;
+    --accent-soft:#2b2a44;
+    --flag:       #e66767;
+    --flag-soft:  #3a2223;
+    --shadow:     0 1px 2px rgba(0,0,0,.5), 0 14px 34px -10px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, var(--plane) 0%, var(--plane-2) 100%);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    padding: clamp(14px, 3vw, 48px) clamp(10px, 3vw, 24px) 72px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- the roll ---------- */
+  .roll {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+    padding: 46px clamp(16px, 4vw, 52px) 52px;
+  }
+  .roll::before, .roll::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    height: 10px;
+    background-repeat: repeat-x;
+    background-size: 14px 10px;
+    pointer-events: none;
+  }
+  .roll::before {
+    top: 0;
+    background-image: radial-gradient(circle at 7px 0, var(--plane) 0 6px, transparent 6.5px);
+  }
+  .roll::after {
+    bottom: 0;
+    background-image: radial-gradient(circle at 7px 10px, var(--plane) 0 6px, transparent 6.5px);
+  }
+  /* faint paper grain */
+  .grain {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: .5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.045'/></svg>");
+  }
+  :root[data-theme="dark"] .grain,
+  :root:not([data-theme="light"]) .grain { mix-blend-mode: screen; opacity: .35; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .grain { mix-blend-mode: multiply; opacity: .5; }
+  }
+
+  .inner { position: relative; z-index: 1; }
+
+  /* ---------- receipt header ---------- */
+  header { text-align: center; }
+  .store {
+    font-family: var(--mono);
+    font-size: clamp(20px, 4.2vw, 30px);
+    font-weight: 700;
+    letter-spacing: .34em;
+    text-indent: .34em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .addr {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.85;
+    letter-spacing: .05em;
+    margin: 0;
+  }
+  .addr span { white-space: nowrap; }
+  .tear {
+    border: 0;
+    border-top: 1px dashed var(--rule-2);
+    margin: 22px 0;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 4px 26px;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- controls ---------- */
+  .controls {
+    display: grid;
+    gap: 18px 26px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    align-items: start;
+    padding: 20px 0 22px;
+  }
+  .ctl-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 9px;
+  }
+  input[type="search"], select {
+    width: 100%;
+    font: inherit;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--paper-2);
+    border: 1px solid var(--rule-2);
+    border-radius: 2px;
+    padding: 8px 10px;
+  }
+  input[type="search"]::placeholder { color: var(--ink-3); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    padding: 5px 10px;
+    border: 1px solid var(--rule-2);
+    background: transparent;
+    color: var(--ink-2);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+  }
+  .thr-row { display: flex; align-items: baseline; gap: 10px; }
+  .thr-val {
+    font-family: var(--sans);
+    font-size: 21px;
+    font-weight: 650;
+    color: var(--flag);
+    min-width: 74px;
+  }
+  input[type="range"] { width: 100%; accent-color: var(--flag); margin: 6px 0 0; }
+  .btn-reset {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule-2);
+    color: var(--ink-2);
+    padding: 7px 14px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .btn-reset:hover { border-color: var(--ink-2); color: var(--ink); }
+
+  :where(button, input, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* ---------- stat tiles ---------- */
+  .tiles {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 6px 0 30px;
+  }
+  .tile { background: var(--paper); padding: 15px 16px 17px; }
+  .tile-k {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 7px;
+  }
+  .tile-v {
+    font-size: clamp(24px, 4.4vw, 33px);
+    font-weight: 640;
+    letter-spacing: -.02em;
+    line-height: 1.05;
+  }
+  .tile-v.flagged { color: var(--flag); }
+  .tile-s {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-top: 5px;
+    letter-spacing: .03em;
+  }
+
+  /* ---------- chart cards ---------- */
+  .card { margin: 0 0 30px; }
+  .card-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 14px; flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  h2 {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .card-sub {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    margin: 3px 0 14px;
+    letter-spacing: .02em;
+    max-width: 66ch;
+  }
+  .tv-btn {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule-2);
+    color: var(--ink-3);
+    padding: 4px 9px;
+    border-radius: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .tv-btn:hover { color: var(--ink); border-color: var(--ink-3); }
+  .tv-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .plot { width: 100%; }
+  .plot svg { display: block; width: 100%; height: auto; }
+  .two-up {
+    display: grid;
+    gap: 30px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  }
+
+  .bar-g { cursor: pointer; }
+  .bar-g:focus { outline: none; }
+  .bar-g:focus-visible rect.hit { stroke: var(--accent); stroke-width: 2; }
+
+  /* ---------- tables ---------- */
+  .tbl-wrap { overflow-x: auto; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  th, td {
+    text-align: left;
+    padding: 7px 12px 7px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  th {
+    font-size: 10.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 700;
+    border-bottom: 1px solid var(--rule-2);
+  }
+  td.num, th.num { text-align: right; padding-right: 0; }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--ink); }
+  th .caret { opacity: .45; font-size: 9px; }
+  tbody tr.is-flagged td.amt { color: var(--flag); font-weight: 700; }
+  tbody tr.sel { background: var(--accent-soft); }
+  tbody tr:hover { background: var(--paper-2); }
+  .pill {
+    display: inline-block;
+    font-size: 9.5px;
+    letter-spacing: .12em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: var(--flag-soft);
+    color: var(--flag);
+    border: 1px solid var(--flag);
+    font-weight: 700;
+  }
+  .dash { color: var(--ink-3); }
+  .note-mark {
+    color: var(--accent);
+    font-weight: 700;
+    cursor: help;
+  }
+
+  /* ---------- footer ---------- */
+  .totals {
+    margin-top: 30px;
+    padding-top: 14px;
+    border-top: 3px double var(--ink);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono);
+    gap: 16px;
+  }
+  .totals .lab { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; }
+  .totals .val { font-family: var(--sans); font-size: clamp(26px, 5vw, 36px); font-weight: 680; letter-spacing: -.02em; }
+  .fineprint {
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.85;
+    color: var(--ink-3);
+    text-align: center;
+    margin: 30px auto 0;
+    max-width: 62ch;
+    letter-spacing: .02em;
+  }
+  .barcode {
+    margin: 26px auto 0;
+    height: 46px;
+    max-width: 320px;
+    display: flex; align-items: stretch; gap: 2px;
+  }
+  .barcode i { background: var(--ink); flex: 0 0 auto; }
+  .empty {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-3);
+    padding: 26px 0;
+    text-align: center;
+    letter-spacing: .04em;
+  }
+
+  /* ---------- tooltip ---------- */
+  #tip {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 12px));
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+    letter-spacing: .02em;
+    padding: 8px 11px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: opacity .1s;
+    box-shadow: 0 6px 18px -4px rgba(0,0,0,.4);
+  }
+  #tip b { font-weight: 700; }
+  #tip .t-amt { color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+  @media (max-width: 560px) {
+    .roll { padding-left: 14px; padding-right: 14px; }
+    th, td { padding-right: 10px; }
+  }
+</style>
+
+<div class="roll">
+  <div class="grain"></div>
+  <div class="inner">
+
+    <header>
+      <h1 class="store">RECEIPT ROLL</h1>
+      <p class="addr">
+        <span>20 PAPER RECEIPTS &middot; 14 CITIES &middot; 10 STATES</span><br>
+        <span>27 APR 2012 &mdash; 09 AUG 2019</span><br>
+        <span>READ FROM IMAGE &middot; NO OCR</span>
+      </p>
+      <hr class="tear">
+      <div class="meta">
+        <span>SRC: /downloads/receipt</span>
+        <span>FILES 1000&ndash;1019</span>
+        <span id="meta-shown">SHOWING 20 OF 20</span>
+      </div>
+    </header>
+
+    <hr class="tear">
+
+    <!-- one filter row, scoping every chart and the ledger below -->
+    <div class="controls">
+      <div>
+        <label class="ctl-label" for="q">Find a vendor</label>
+        <input type="search" id="q" placeholder="e.g. sushi, taco, cafe" autocomplete="off">
+      </div>
+      <div>
+        <label class="ctl-label" for="st">State</label>
+        <select id="st"></select>
+      </div>
+      <div>
+        <span class="ctl-label" id="yr-lab">Year</span>
+        <div class="chips" id="years" role="group" aria-labelledby="yr-lab"></div>
+      </div>
+      <div>
+        <label class="ctl-label" for="thr">Flag receipts over</label>
+        <div class="thr-row">
+          <span class="thr-val" id="thr-val">$50</span>
+          <input type="range" id="thr" min="0" max="180" step="1" value="50"
+                 aria-label="Flag threshold in dollars">
+        </div>
+      </div>
+      <div style="align-self:end">
+        <button class="btn-reset" id="reset" type="button">Reset all</button>
+      </div>
+    </div>
+
+    <div class="tiles" id="tiles"></div>
+
+    <!-- CHART 1 -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Every receipt, largest first</h2>
+        <button class="tv-btn" data-tv="c1" aria-pressed="false" type="button">Table</button>
+      </div>
+      <p class="card-sub">Drag the threshold slider above and the red line moves with it. Click any bar to jump to its row in the ledger.</p>
+      <div class="plot" id="c1"></div>
+      <div class="tbl-wrap" id="c1-tbl" hidden></div>
+    </section>
+
+    <!-- CHART 2 -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Seven years of eating out</h2>
+        <button class="tv-btn" data-tv="c2" aria-pressed="false" type="button">Table</button>
+      </div>
+      <p class="card-sub" id="c2-sub">Each dot is one receipt, placed by its printed date.</p>
+      <div class="plot" id="c2"></div>
+      <div class="tbl-wrap" id="c2-tbl" hidden></div>
+    </section>
+
+    <div class="two-up">
+      <!-- CHART 3 -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Spend by state</h2>
+          <button class="tv-btn" data-tv="c3" aria-pressed="false" type="button">Table</button>
+        </div>
+        <p class="card-sub">From the address printed on each receipt.</p>
+        <div class="plot" id="c3"></div>
+        <div class="tbl-wrap" id="c3-tbl" hidden></div>
+      </section>
+
+      <!-- CHART 4 -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Spend by kitchen</h2>
+          <button class="tv-btn" data-tv="c4" aria-pressed="false" type="button">Table</button>
+        </div>
+        <p class="card-sub">Inferred from vendor names and line items &mdash; not printed on the receipts.</p>
+        <div class="plot" id="c4"></div>
+        <div class="tbl-wrap" id="c4-tbl" hidden></div>
+      </section>
+    </div>
+
+    <hr class="tear">
+
+    <!-- LEDGER -->
+    <section class="card" id="ledger-card">
+      <div class="card-head">
+        <h2>The ledger</h2>
+      </div>
+      <p class="card-sub">Click a column heading to sort. Totals are as printed and exclude any tip added afterwards.</p>
+      <div class="tbl-wrap">
+        <table id="ledger">
+          <thead>
+            <tr>
+              <th class="sortable" data-k="file">File <span class="caret"></span></th>
+              <th class="sortable" data-k="d">Date <span class="caret"></span></th>
+              <th class="sortable" data-k="v">Vendor <span class="caret"></span></th>
+              <th class="sortable" data-k="city">Where <span class="caret"></span></th>
+              <th class="sortable" data-k="cui">Kitchen <span class="caret"></span></th>
+              <th class="sortable num" data-k="amt">Total <span class="caret"></span></th>
+              <th>Flag</th>
+            </tr>
+          </thead>
+          <tbody id="ledger-body"></tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <span class="lab">Total</span>
+        <span class="val" id="grand">$1,004.51</span>
+      </div>
+    </section>
+
+    <div class="barcode" id="barcode" aria-hidden="true"></div>
+
+    <p class="fineprint">
+      *** THANK YOU FOR YOUR BUSINESS ***<br>
+      Every figure was read directly from the receipt photograph.<br>
+      Two receipts carry no printed date and sit outside the timeline.<br>
+      Katana Sushi shows a printed $143.71; the handwritten 153.71 beside it is read as a $10 tip.<br>
+      HP Pho Ga includes a 40% service charge of $8.90 on a $24.36 bill.
+    </p>
+
+  </div>
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------ data */
+  // amt = printed receipt total. d = printed date (null when none printed).
+  // cui = inferred kitchen, flagged as inferred in the chart subtitle.
+  var DATA = [
+    {file:"1000", d:"2016-05-26", v:"Green Field",              city:"Long Beach",    st:"CA", amt:56.58,  cui:"Steakhouse", note:""},
+    {file:"1001", d:"2015-04-25", v:"Grand Lux Cafe",           city:"Garden City",   st:"NY", amt:69.25,  cui:"American",   note:""},
+    {file:"1002", d:"2016-09-01", v:"Taco Bell",                city:"Lawrence",      st:"IN", amt:7.61,   cui:"Mexican",    note:""},
+    {file:"1003", d:"2017-04-20", v:"El Gran Mar de Plata",     city:"Miami",         st:"FL", amt:5.35,   cui:"Latin",      note:"One Miller Lite, settled at the bar."},
+    {file:"1004", d:"2019-05-18", v:"Golden Bowl Teriyaki",     city:"South Gate",    st:"CA", amt:15.03,  cui:"Japanese",   note:""},
+    {file:"1005", d:"2017-08-15", v:"Saska's",                  city:"San Diego",     st:"CA", amt:179.94, cui:"Steakhouse", note:"Two 16oz steaks, lobster, and a round of rye."},
+    {file:"1006", d:"2016-11-18", v:"Akira",                    city:"Glenmont",      st:"NY", amt:93.58,  cui:"Japanese",   note:"Low-resolution image; subtotal 86.65 + tax 6.93 reconciles."},
+    {file:"1007", d:"2018-05-11", v:"Katana Sushi",             city:"Everett",       st:"WA", amt:143.71, cui:"Japanese",   note:"Printed total used; handwritten 153.71 reads as a $10 tip."},
+    {file:"1008", d:null,         v:"Dona Mercedes",            city:"San Fernando",  st:"CA", amt:24.47,  cui:"Latin",      note:"No date printed on the receipt."},
+    {file:"1009", d:"2019-08-09", v:"Bella Pasta",              city:"Pawtucket",     st:"RI", amt:30.76,  cui:"Italian",    note:""},
+    {file:"1010", d:"2018-07-21", v:"Friendly Red's",           city:"Windham",       st:"NH", amt:77.83,  cui:"American",   note:""},
+    {file:"1011", d:"2015-06-26", v:"Smoke City Market",        city:"Sherman Oaks",  st:"CA", amt:64.43,  cui:"Barbecue",   note:"Header reads Quick 73 - Smoke City Market."},
+    {file:"1012", d:"2019-04-01", v:"HP Pho Ga",                city:"Rosemead",      st:"CA", amt:33.26,  cui:"Vietnamese", note:"Includes a 40% service charge of 8.90 on a 24.36 bill."},
+    {file:"1013", d:null,         v:"Albetos Mexican Food",     city:"Artesia",       st:"CA", amt:9.58,   cui:"Mexican",    note:"No date printed on the receipt."},
+    {file:"1014", d:"2019-02-23", v:"Loaded Cafe",              city:"Bellflower",    st:"CA", amt:48.53,  cui:"American",   note:""},
+    {file:"1015", d:"2017-03-10", v:"Hammocks Trading Co.",     city:"Sandy Springs", st:"GA", amt:50.29,  cui:"American",   note:"Nice to meet you! is written across the top."},
+    {file:"1016", d:"2019-02-02", v:"Chef Wang",                city:"New Hyde Park", st:"NY", amt:35.52,  cui:"Chinese",    note:""},
+    {file:"1017", d:"2016-04-24", v:"UMIX",                     city:"Brownsville",   st:"TX", amt:11.04,  cui:"Cafe",       note:"Items Paris and Le Classique are menu names."},
+    {file:"1018", d:"2012-04-27", v:"In-N-Out Burger",          city:"Santa Clara",   st:"CA", amt:2.17,   cui:"American",   note:"A single hamburger, counter take-out."},
+    {file:"1019", d:"2017-05-12", v:"Grotto Pizzeria & Tavern", city:"Trenton",       st:"MI", amt:45.58,  cui:"Italian",    note:""}
+  ];
+
+  DATA.forEach(function (r) {
+    r.date = r.d ? new Date(r.d + "T12:00:00") : null;
+    r.year = r.d ? +r.d.slice(0, 4) : null;
+  });
+
+  /* ----------------------------------------------------------------- state */
+  var S = {
+    thr: 50,
+    years: new Set(),      // empty = all
+    st: "all",
+    q: "",
+    sortK: "amt",
+    sortD: -1,
+    sel: null
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var tip = $("tip");
+
+  var money = function (n) {
+    return "$" + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  var money0 = function (n) {
+    return "$" + Math.round(n).toLocaleString("en-US");
+  };
+  var MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var fmtDate = function (r) {
+    if (!r.date) return "no date";
+    return MON[r.date.getMonth()] + " " + r.date.getDate() + ", " + r.date.getFullYear();
+  };
+  var esc = function (s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  };
+
+  var NS = "http://www.w3.org/2000/svg";
+  function svgEl(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] !== null && attrs[k] !== undefined) {
+      e.setAttribute(k, attrs[k]);
+    }
+    return e;
+  }
+  // rect with only the far (right) end rounded -- data-ends rounded, baseline square
+  function barPath(x, y, w, h, r) {
+    r = Math.max(0, Math.min(r, w, h / 2));
+    if (w <= 0) return "M" + x + "," + y + "h0";
+    return "M" + x + "," + y +
+           "h" + (w - r) +
+           "a" + r + "," + r + " 0 0 1 " + r + "," + r +
+           "v" + (h - 2 * r) +
+           "a" + r + "," + r + " 0 0 1 " + (-r) + "," + r +
+           "h" + (-(w - r)) + "z";
+  }
+
+  function css(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  // Trim a label to the width actually available, measured rather than estimated.
+  // The node must already be in the document for getComputedTextLength to work.
+  var ELL = String.fromCharCode(8230);
+  function fitText(node, full, maxW) {
+    node.textContent = full;
+    if (maxW <= 0 || node.getComputedTextLength() <= maxW) return;
+    var lo = 0, hi = full.length;
+    while (lo < hi) {
+      var mid = Math.ceil((lo + hi) / 2);
+      node.textContent = full.slice(0, mid) + ELL;
+      if (node.getComputedTextLength() <= maxW) lo = mid; else hi = mid - 1;
+    }
+    node.textContent = lo > 0 ? full.slice(0, lo) + ELL : ELL;
+  }
+
+  /* -------------------------------------------------------------- tooltips */
+  function showTip(html, x, y) {
+    tip.innerHTML = html;
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+    tip.style.opacity = "1";
+  }
+  function hideTip() { tip.style.opacity = "0"; }
+
+  function tipFor(r) {
+    return "<b>" + esc(r.v) + "</b><br>" +
+           esc(fmtDate(r)) + " &middot; " + esc(r.city) + ", " + esc(r.st) + "<br>" +
+           '<span class="t-amt">' + money(r.amt) + "</span>" +
+           (r.amt > S.thr ? "  \u25b2 over " + money0(S.thr) : "");
+  }
+
+  /* --------------------------------------------------------------- filters */
+  function filtered() {
+    var q = S.q.trim().toLowerCase();
+    return DATA.filter(function (r) {
+      if (S.st !== "all" && r.st !== S.st) return false;
+      if (S.years.size) {
+        var key = r.year === null ? "none" : String(r.year);
+        if (!S.years.has(key)) return false;
+      }
+      if (q) {
+        var hay = (r.v + " " + r.city + " " + r.st + " " + r.cui).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function groupSum(rows, key) {
+    var m = new Map();
+    rows.forEach(function (r) {
+      var g = m.get(r[key]) || { k: r[key], sum: 0, n: 0 };
+      g.sum += r.amt; g.n += 1;
+      m.set(r[key], g);
+    });
+    return Array.from(m.values()).sort(function (a, b) { return b.sum - a.sum; });
+  }
+
+  /* ----------------------------------------------------------- chart: bars */
+  function drawReceiptBars(host, rows) {
+    host.innerHTML = "";
+    if (!rows.length) { host.innerHTML = '<p class="empty">No receipts match these filters.</p>'; return; }
+
+    var W = host.clientWidth || 720;
+    var rowH = W < 460 ? 30 : 27;
+    var barH = 12;
+    var labelW = Math.max(84, Math.min(W * 0.30, 176));
+    var valW = W < 460 ? 62 : 74;
+    var padT = 26, padB = 8;
+    var plotW = Math.max(40, W - labelW - valW - 14);
+    var H = padT + rows.length * rowH + padB;
+
+    var max = Math.max.apply(null, rows.map(function (r) { return r.amt; }));
+    var scale = Math.max(max, S.thr * 1.05);
+    var x = function (v) { return labelW + (v / scale) * plotW; };
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Bar chart of each receipt total, largest first" });
+    host.appendChild(svg); // in the document first, so labels can be measured
+
+    // recessive vertical gridlines
+    var step = scale > 120 ? 50 : scale > 60 ? 25 : 10;
+    for (var g = step; g <= scale; g += step) {
+      svg.appendChild(svgEl("line", {
+        x1: x(g), x2: x(g), y1: padT - 8, y2: H - padB,
+        stroke: css("--rule"), "stroke-width": 1
+      }));
+      var gl = svgEl("text", {
+        x: x(g), y: padT - 13, "text-anchor": "middle",
+        fill: css("--ink-3"), "font-family": css("--mono"), "font-size": 10,
+        "letter-spacing": ".06em"
+      });
+      gl.textContent = money0(g);
+      svg.appendChild(gl);
+    }
+
+    // baseline
+    svg.appendChild(svgEl("line", {
+      x1: labelW, x2: labelW, y1: padT - 8, y2: H - padB,
+      stroke: css("--rule-2"), "stroke-width": 1
+    }));
+
+    rows.forEach(function (r, i) {
+      var y = padT + i * rowH;
+      var flagged = r.amt > S.thr;
+      var col = flagged ? css("--flag") : css("--accent");
+      var by = y + (rowH - barH) / 2;
+
+      var grp = svgEl("g", { class: "bar-g", tabindex: "0", role: "listitem",
+        "aria-label": r.v + ", " + fmtDate(r) + ", " + money(r.amt) + (flagged ? ", over threshold" : "") });
+
+      // generous hit area (full row)
+      var hit = svgEl("rect", { class: "hit", x: 0, y: y, width: W, height: rowH, fill: "transparent" });
+      grp.appendChild(hit);
+
+      var lab = svgEl("text", {
+        x: labelW - 10, y: y + rowH / 2 + 4, "text-anchor": "end",
+        fill: r.file === S.sel ? css("--accent") : css("--ink-2"),
+        "font-family": css("--mono"), "font-size": W < 460 ? 10.5 : 11.5,
+        "font-weight": r.file === S.sel ? 700 : 400
+      });
+      grp.appendChild(lab);
+      svg.appendChild(grp);
+      fitText(lab, r.v, labelW - 12);
+
+      grp.appendChild(svgEl("path", {
+        d: barPath(labelW, by, Math.max(1.5, x(r.amt) - labelW), barH, 4),
+        fill: col, opacity: r.file === S.sel || S.sel === null ? 1 : 0.35
+      }));
+
+      var val = svgEl("text", {
+        x: x(r.amt) + 9, y: y + rowH / 2 + 4,
+        fill: flagged ? css("--flag") : css("--ink-2"),
+        "font-family": css("--mono"), "font-size": W < 460 ? 10.5 : 11.5,
+        "font-weight": flagged ? 700 : 400,
+        "font-variant-numeric": "tabular-nums"
+      });
+      val.textContent = money(r.amt);
+      grp.appendChild(val);
+
+      function enter(ev) {
+        var b = hit.getBoundingClientRect();
+        showTip(tipFor(r), ev.clientX || (b.left + b.width / 2), b.top + b.height / 2);
+      }
+      grp.addEventListener("mouseenter", enter);
+      grp.addEventListener("mousemove", enter);
+      grp.addEventListener("mouseleave", hideTip);
+      grp.addEventListener("focus", function () {
+        var b = hit.getBoundingClientRect();
+        showTip(tipFor(r), b.left + labelW + 40, b.top + b.height / 2);
+      });
+      grp.addEventListener("blur", hideTip);
+      grp.addEventListener("click", function () { selectReceipt(r.file); });
+      grp.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectReceipt(r.file); }
+      });
+    });
+
+    // threshold rule -- the one dashed line on the page, because it IS a threshold
+    if (S.thr > 0 && S.thr <= scale) {
+      svg.appendChild(svgEl("line", {
+        x1: x(S.thr), x2: x(S.thr), y1: padT - 8, y2: H - padB,
+        stroke: css("--flag"), "stroke-width": 1.5, "stroke-dasharray": "4 3"
+      }));
+      var tl = svgEl("text", {
+        x: x(S.thr), y: padT - 13, "text-anchor": "middle",
+        fill: css("--flag"), "font-family": css("--mono"), "font-size": 10,
+        "font-weight": 700, "letter-spacing": ".06em"
+      });
+      tl.textContent = money0(S.thr);
+      svg.appendChild(tl);
+    }
+  }
+
+  /* ------------------------------------------------------- chart: timeline */
+  function drawTimeline(host, rows) {
+    host.innerHTML = "";
+    var dated = rows.filter(function (r) { return r.date; });
+    $("c2-sub").textContent = dated.length === rows.length
+      ? "Each dot is one receipt, placed by its printed date."
+      : "Each dot is one receipt, placed by its printed date. " +
+        (rows.length - dated.length) + " undated receipt" +
+        (rows.length - dated.length > 1 ? "s are" : " is") + " not shown here.";
+
+    if (!dated.length) { host.innerHTML = '<p class="empty">No dated receipts match these filters.</p>'; return; }
+
+    var W = host.clientWidth || 720;
+    var H = W < 460 ? 230 : 280;
+    var mL = 46, mR = 14, mT = 16, mB = 38;
+    var pw = W - mL - mR, ph = H - mT - mB;
+
+    var t0 = new Date("2012-01-01T00:00:00").getTime();
+    var t1 = new Date("2019-12-31T00:00:00").getTime();
+    var maxA = Math.max(190, Math.max.apply(null, dated.map(function (r) { return r.amt; })) * 1.08);
+
+    var X = function (d) { return mL + ((d.getTime() - t0) / (t1 - t0)) * pw; };
+    var Y = function (v) { return mT + ph - (v / maxA) * ph; };
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Scatter plot of receipt totals over time, 2012 to 2019" });
+
+    // horizontal hairline grid + y ticks
+    [0, 50, 100, 150].forEach(function (v) {
+      if (v > maxA) return;
+      svg.appendChild(svgEl("line", {
+        x1: mL, x2: W - mR, y1: Y(v), y2: Y(v),
+        stroke: v === 0 ? css("--rule-2") : css("--rule"), "stroke-width": 1
+      }));
+      var t = svgEl("text", {
+        x: mL - 9, y: Y(v) + 4, "text-anchor": "end",
+        fill: css("--ink-3"), "font-family": css("--mono"), "font-size": 10,
+        "font-variant-numeric": "tabular-nums"
+      });
+      t.textContent = money0(v);
+      svg.appendChild(t);
+    });
+
+    // x ticks -- one per year
+    for (var yr = 2012; yr <= 2019; yr++) {
+      var xx = X(new Date(yr + "-07-01T00:00:00"));
+      var lt = svgEl("text", {
+        x: xx, y: H - mB + 20, "text-anchor": "middle",
+        fill: css("--ink-3"), "font-family": css("--mono"), "font-size": 10,
+        "letter-spacing": ".04em"
+      });
+      lt.textContent = W < 520 ? "'" + String(yr).slice(2) : yr;
+      svg.appendChild(lt);
+    }
+
+    // threshold rule
+    if (S.thr > 0 && S.thr <= maxA) {
+      svg.appendChild(svgEl("line", {
+        x1: mL, x2: W - mR, y1: Y(S.thr), y2: Y(S.thr),
+        stroke: css("--flag"), "stroke-width": 1.5, "stroke-dasharray": "4 3"
+      }));
+    }
+
+    var sorted = dated.slice().sort(function (a, b) { return a.date - b.date; });
+    sorted.forEach(function (r) {
+      var flagged = r.amt > S.thr;
+      var g = svgEl("g", { class: "bar-g", tabindex: "0",
+        "aria-label": r.v + ", " + fmtDate(r) + ", " + money(r.amt) });
+      g.appendChild(svgEl("circle", {
+        cx: X(r.date), cy: Y(r.amt), r: 14, fill: "transparent"
+      }));
+      // 2px surface ring keeps overlapping dots separate
+      g.appendChild(svgEl("circle", {
+        cx: X(r.date), cy: Y(r.amt), r: 5.5,
+        fill: flagged ? css("--flag") : css("--accent"),
+        stroke: css("--paper"), "stroke-width": 2,
+        opacity: S.sel === null || S.sel === r.file ? 1 : 0.3
+      }));
+      function enter(ev) {
+        showTip(tipFor(r), ev.clientX, ev.clientY);
+      }
+      g.addEventListener("mouseenter", enter);
+      g.addEventListener("mousemove", enter);
+      g.addEventListener("mouseleave", hideTip);
+      g.addEventListener("focus", function () {
+        var b = g.getBoundingClientRect();
+        showTip(tipFor(r), b.left + b.width / 2, b.top + b.height / 2);
+      });
+      g.addEventListener("blur", hideTip);
+      g.addEventListener("click", function () { selectReceipt(r.file); });
+      g.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectReceipt(r.file); }
+      });
+      svg.appendChild(g);
+    });
+
+    // direct-label the extreme only
+    var top = sorted.reduce(function (a, b) { return b.amt > a.amt ? b : a; }, sorted[0]);
+    var lx = X(top.date), anchor = "middle";
+    if (lx < mL + 46) { anchor = "start"; lx = mL + 2; }
+    if (lx > W - mR - 46) { anchor = "end"; lx = W - mR - 2; }
+    var lbl = svgEl("text", {
+      x: lx, y: Y(top.amt) - 13, "text-anchor": anchor,
+      fill: css("--ink-2"), "font-family": css("--mono"), "font-size": 10.5
+    });
+    lbl.textContent = top.v + " " + money(top.amt);
+    svg.appendChild(lbl);
+
+    host.appendChild(svg);
+  }
+
+  /* ------------------------------------------------- chart: grouped totals */
+  function drawGroupBars(host, groups, label) {
+    host.innerHTML = "";
+    if (!groups.length) { host.innerHTML = '<p class="empty">Nothing to show.</p>'; return; }
+
+    var W = host.clientWidth || 360;
+    var rowH = 25, barH = 11;
+    var labelW = Math.max(72, Math.min(W * 0.30, 110));
+    var valW = 66;
+    var padT = 6, padB = 6;
+    var plotW = Math.max(30, W - labelW - valW - 12);
+    var H = padT + groups.length * rowH + padB;
+    var max = Math.max.apply(null, groups.map(function (g) { return g.sum; }));
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Bar chart of total spend by " + label });
+    host.appendChild(svg); // in the document first, so labels can be measured
+
+    svg.appendChild(svgEl("line", {
+      x1: labelW, x2: labelW, y1: padT, y2: H - padB,
+      stroke: css("--rule-2"), "stroke-width": 1
+    }));
+
+    groups.forEach(function (g, i) {
+      var y = padT + i * rowH;
+      var w = Math.max(1.5, (g.sum / max) * plotW);
+      var grp = svgEl("g", { class: "bar-g", tabindex: "0",
+        "aria-label": g.k + ", " + money(g.sum) + " across " + g.n + " receipts" });
+
+      grp.appendChild(svgEl("rect", { class: "hit", x: 0, y: y, width: W, height: rowH, fill: "transparent" }));
+
+      var lt = svgEl("text", {
+        x: labelW - 9, y: y + rowH / 2 + 4, "text-anchor": "end",
+        fill: css("--ink-2"), "font-family": css("--mono"), "font-size": 11
+      });
+      grp.appendChild(lt);
+      svg.appendChild(grp);
+      fitText(lt, g.k, labelW - 11);
+
+      grp.appendChild(svgEl("path", {
+        d: barPath(labelW, y + (rowH - barH) / 2, w, barH, 4),
+        fill: css("--accent")
+      }));
+
+      var vt = svgEl("text", {
+        x: labelW + w + 8, y: y + rowH / 2 + 4,
+        fill: css("--ink-2"), "font-family": css("--mono"), "font-size": 11,
+        "font-variant-numeric": "tabular-nums"
+      });
+      vt.textContent = money(g.sum);
+      grp.appendChild(vt);
+
+      function enter(ev) {
+        showTip("<b>" + esc(g.k) + "</b><br>" + money(g.sum) + " &middot; " +
+                g.n + " receipt" + (g.n > 1 ? "s" : ""), ev.clientX, ev.clientY);
+      }
+      grp.addEventListener("mouseenter", enter);
+      grp.addEventListener("mousemove", enter);
+      grp.addEventListener("mouseleave", hideTip);
+      grp.addEventListener("focus", function () {
+        var b = grp.getBoundingClientRect();
+        showTip("<b>" + esc(g.k) + "</b><br>" + money(g.sum), b.left + labelW + 40, b.top + b.height / 2);
+      });
+      grp.addEventListener("blur", hideTip);
+    });
+  }
+
+  /* ---------------------------------------------------------- table views */
+  function tableHTML(cols, rows) {
+    var h = "<table><thead><tr>";
+    cols.forEach(function (c) { h += '<th class="' + (c.num ? "num" : "") + '">' + esc(c.h) + "</th>"; });
+    h += "</tr></thead><tbody>";
+    rows.forEach(function (r) {
+      h += "<tr>";
+      cols.forEach(function (c) { h += '<td class="' + (c.num ? "num" : "") + '">' + c.f(r) + "</td>"; });
+      h += "</tr>";
+    });
+    return h + "</tbody></table>";
+  }
+
+  /* -------------------------------------------------------------- selection */
+  function selectReceipt(file) {
+    S.sel = (S.sel === file) ? null : file;
+    render();
+    if (S.sel) {
+      var row = document.querySelector('tr[data-file="' + S.sel + '"]');
+      if (row && row.scrollIntoView) row.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
+
+  /* ------------------------------------------------------------- rendering */
+  function render() {
+    var rows = filtered();
+    var n = rows.length;
+    var total = rows.reduce(function (a, r) { return a + r.amt; }, 0);
+    var flagged = rows.filter(function (r) { return r.amt > S.thr; });
+    var flagTotal = flagged.reduce(function (a, r) { return a + r.amt; }, 0);
+    var avg = n ? total / n : 0;
+
+    $("meta-shown").textContent = "SHOWING " + n + " OF " + DATA.length;
+
+    /* tiles */
+    $("tiles").innerHTML = [
+      { k: "Total spend", v: money(total), s: n + " receipt" + (n === 1 ? "" : "s") },
+      { k: "Average", v: money(avg), s: n ? "median " + money(median(rows)) : "\u2014" },
+      { k: "Biggest night", v: n ? money(Math.max.apply(null, rows.map(function (r) { return r.amt; }))) : "\u2014",
+        s: n ? topName(rows) : "\u2014" },
+      { k: "Over " + money0(S.thr), v: String(flagged.length), s: money(flagTotal) +
+        (total ? " \u00b7 " + Math.round((flagTotal / total) * 100) + "% of spend" : ""), flag: true }
+    ].map(function (t) {
+      return '<div class="tile"><div class="tile-k">' + esc(t.k) + "</div>" +
+             '<div class="tile-v' + (t.flag ? " flagged" : "") + '">' + esc(t.v) + "</div>" +
+             '<div class="tile-s">' + esc(t.s) + "</div></div>";
+    }).join("");
+
+    $("grand").textContent = money(total);
+
+    /* charts */
+    var byAmt = rows.slice().sort(function (a, b) { return b.amt - a.amt; });
+    drawReceiptBars($("c1"), byAmt);
+    drawTimeline($("c2"), rows);
+    var gSt = groupSum(rows, "st");
+    var gCu = groupSum(rows, "cui");
+    drawGroupBars($("c3"), gSt, "state");
+    drawGroupBars($("c4"), gCu, "kitchen");
+
+    /* table twins */
+    $("c1-tbl").innerHTML = tableHTML([
+      { h: "Vendor", f: function (r) { return esc(r.v); } },
+      { h: "Date", f: function (r) { return esc(fmtDate(r)); } },
+      { h: "Total", num: true, f: function (r) { return money(r.amt); } },
+      { h: "Over " + money0(S.thr), f: function (r) { return r.amt > S.thr ? '<span class="pill">FLAG</span>' : '<span class="dash">&mdash;</span>'; } }
+    ], byAmt);
+
+    $("c2-tbl").innerHTML = tableHTML([
+      { h: "Date", f: function (r) { return esc(fmtDate(r)); } },
+      { h: "Vendor", f: function (r) { return esc(r.v); } },
+      { h: "Total", num: true, f: function (r) { return money(r.amt); } }
+    ], rows.slice().sort(function (a, b) {
+      if (!a.date) return 1; if (!b.date) return -1; return a.date - b.date;
+    }));
+
+    $("c3-tbl").innerHTML = tableHTML([
+      { h: "State", f: function (g) { return esc(g.k); } },
+      { h: "Receipts", num: true, f: function (g) { return g.n; } },
+      { h: "Spend", num: true, f: function (g) { return money(g.sum); } }
+    ], gSt);
+
+    $("c4-tbl").innerHTML = tableHTML([
+      { h: "Kitchen", f: function (g) { return esc(g.k); } },
+      { h: "Receipts", num: true, f: function (g) { return g.n; } },
+      { h: "Spend", num: true, f: function (g) { return money(g.sum); } }
+    ], gCu);
+
+    /* ledger */
+    var led = rows.slice().sort(function (a, b) {
+      var A = a[S.sortK], B = b[S.sortK];
+      if (S.sortK === "d") { A = a.date ? a.date.getTime() : -1; B = b.date ? b.date.getTime() : -1; }
+      if (typeof A === "string") return A.localeCompare(B) * S.sortD;
+      return (A - B) * S.sortD;
+    });
+
+    $("ledger-body").innerHTML = led.length ? led.map(function (r) {
+      var f = r.amt > S.thr;
+      return '<tr data-file="' + r.file + '" class="' + (f ? "is-flagged " : "") +
+             (S.sel === r.file ? "sel" : "") + '">' +
+        "<td>" + r.file + "</td>" +
+        "<td>" + (r.date ? esc(fmtDate(r)) : '<span class="dash">no date</span>') + "</td>" +
+        "<td>" + esc(r.v) + (r.note ? ' <span class="note-mark" title="' + esc(r.note) + '">*</span>' : "") + "</td>" +
+        "<td>" + esc(r.city) + ", " + esc(r.st) + "</td>" +
+        "<td>" + esc(r.cui) + "</td>" +
+        '<td class="num amt">' + money(r.amt) + "</td>" +
+        "<td>" + (f ? '<span class="pill">FLAG</span>' : '<span class="dash">&mdash;</span>') + "</td>" +
+      "</tr>";
+    }).join("") : '<tr><td colspan="7"><p class="empty">No receipts match these filters.</p></td></tr>';
+
+    document.querySelectorAll("#ledger th.sortable").forEach(function (th) {
+      var c = th.querySelector(".caret");
+      c.textContent = th.dataset.k === S.sortK ? (S.sortD === 1 ? "\u25b2" : "\u25bc") : "";
+    });
+
+    document.querySelectorAll("#ledger-body tr[data-file]").forEach(function (tr) {
+      tr.addEventListener("click", function () { selectReceipt(tr.dataset.file); });
+    });
+  }
+
+  function median(rows) {
+    var a = rows.map(function (r) { return r.amt; }).sort(function (x, y) { return x - y; });
+    var m = Math.floor(a.length / 2);
+    return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+  }
+  function topName(rows) {
+    var t = rows.reduce(function (a, b) { return b.amt > a.amt ? b : a; }, rows[0]);
+    return t.v;
+  }
+
+  /* ----------------------------------------------------------------- wiring */
+  // year chips
+  var years = Array.from(new Set(DATA.filter(function (r) { return r.year; })
+    .map(function (r) { return r.year; }))).sort();
+  var chipDefs = years.map(function (y) { return { k: String(y), t: String(y) }; });
+  chipDefs.push({ k: "none", t: "undated" });
+  $("years").innerHTML = chipDefs.map(function (c) {
+    return '<button class="chip" type="button" data-y="' + c.k + '" aria-pressed="false">' + c.t + "</button>";
+  }).join("");
+  $("years").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    var k = b.dataset.y;
+    if (S.years.has(k)) S.years.delete(k); else S.years.add(k);
+    b.setAttribute("aria-pressed", S.years.has(k) ? "true" : "false");
+    render();
+  });
+
+  // state select
+  var sts = Array.from(new Set(DATA.map(function (r) { return r.st; }))).sort();
+  $("st").innerHTML = '<option value="all">All states</option>' +
+    sts.map(function (s) {
+      var n = DATA.filter(function (r) { return r.st === s; }).length;
+      return '<option value="' + s + '">' + s + " (" + n + ")</option>";
+    }).join("");
+  $("st").addEventListener("change", function (e) { S.st = e.target.value; render(); });
+
+  // search
+  $("q").addEventListener("input", function (e) { S.q = e.target.value; render(); });
+
+  // threshold
+  $("thr").addEventListener("input", function (e) {
+    S.thr = +e.target.value;
+    $("thr-val").textContent = money0(S.thr);
+    render();
+  });
+
+  // reset
+  $("reset").addEventListener("click", function () {
+    S.thr = 50; S.years.clear(); S.st = "all"; S.q = ""; S.sel = null;
+    S.sortK = "amt"; S.sortD = -1;
+    $("thr").value = 50; $("thr-val").textContent = "$50";
+    $("q").value = ""; $("st").value = "all";
+    document.querySelectorAll("#years .chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+    render();
+  });
+
+  // sortable ledger
+  document.querySelectorAll("#ledger th.sortable").forEach(function (th) {
+    th.addEventListener("click", function () {
+      var k = th.dataset.k;
+      if (S.sortK === k) S.sortD *= -1;
+      else { S.sortK = k; S.sortD = (k === "amt") ? -1 : 1; }
+      render();
+    });
+  });
+
+  // table-view toggles
+  document.querySelectorAll("[data-tv]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var id = b.dataset.tv;
+      var on = b.getAttribute("aria-pressed") === "true";
+      b.setAttribute("aria-pressed", on ? "false" : "true");
+      b.textContent = on ? "Table" : "Chart";
+      $(id).hidden = !on;
+      $(id + "-tbl").hidden = on;
+    });
+  });
+
+  // barcode footer -- deterministic widths, decorative only
+  (function () {
+    var bc = $("barcode"), html = "", seed = 7;
+    for (var i = 0; i < 58; i++) {
+      seed = (seed * 1103515245 + 12345) % 2147483648;
+      var w = 1 + (seed % 4);
+      html += '<i style="width:' + w + 'px"></i>';
+    }
+    bc.innerHTML = html;
+  })();
+
+  // responsive redraw
+  var rt;
+  window.addEventListener("resize", function () {
+    clearTimeout(rt);
+    rt = setTimeout(render, 120);
+  });
+  // theme toggle restyles the charts (colors are read from CSS at draw time)
+  new MutationObserver(render).observe(document.documentElement, {
+    attributes: true, attributeFilter: ["data-theme"]
+  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", render);
+  }
+
+  document.addEventListener("scroll", hideTip, { passive: true });
+
+  render();
+})();
+</script>
+
+</body></html>
