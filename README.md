@@ -1,5 +1,7 @@
 # Receipt Roll
 
+[![Receipt Roll: the filters, the spend totals and every receipt charted largest first](docs/hero.png)](https://receipt-roll.vercel.app)
+
 **[View it live](https://receipt-roll.vercel.app)**
 
 Receipt photos in, a ledger out. Every figure on each receipt (shop, date, items, total) was read from the photograph by a vision model; the page turns the results into a filterable ledger with charts and a threshold flag for receipts over a chosen amount.
